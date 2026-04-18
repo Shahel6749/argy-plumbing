@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Reviews | Argy Plumbing and Heating Ltd. Calgary</title>
+  <meta name="description" content="Read what Calgary homeowners say about Argy Plumbing and Heating Ltd. — 35 five-star Google reviews and counting. Real customers, real results." />
+  <link rel="canonical" href="https://argyplumbing.com/reviews.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .reviews-page-header {
+      background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%);
+      padding: calc(var(--nav-height) + 64px) 0 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .reviews-page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(3,105,161,.2) 0%, transparent 60%);
+    }
+    .reviews-page-header > * { position: relative; z-index: 1; }
+    .reviews-page-header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem,4vw,3rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .reviews-page-header p { color: rgba(255,255,255,.75); font-size: 1.05rem; max-width: 540px; margin: 0 auto 24px; }
+    .overall-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: var(--radius-xl);
+      padding: 20px 36px;
+      margin-top: 12px;
+    }
+    .overall-num {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+    .overall-info { text-align: left; }
+    .overall-stars { font-size: 1.5rem; color: var(--color-gold); letter-spacing: 3px; display: block; margin-bottom: 4px; }
+    .overall-info span { font-size: .875rem; color: rgba(255,255,255,.7); font-weight: 700; }
+    .reviews-section-full { padding: 80px 0 100px; background: var(--color-bg); }
+    .reviews-all-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 768px) { .reviews-all-grid { grid-template-columns: 1fr; } }
+    .review-card-full {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .review-card-full:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .75rem;
+      font-weight: 700;
+      color: #5F6368;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--color-border);
+    }
+    .google-g {
+      width: 16px;
+      height: 16px;
+      background: linear-gradient(135deg,#4285F4 25%,#EA4335 25%,#EA4335 50%,#FBBC05 50%,#FBBC05 75%,#34A853 75%);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Argy Plumbing and Heating Homepage">
+        <div class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M8 4C8 4 6 8 6 14C6 18 8 21 12 22L12 28H20V22C24 21 26 18 26 14C26 8 24 4 24 4" stroke="#0369A1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 14H20M16 10V18" stroke="#0369A1" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="logo-text"><span class="logo-name">Argy Plumbing</span><span class="logo-sub">&amp; Heating Ltd.</span></div>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="reviews.html" class="nav-link active">Reviews</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="tel:+14033544033" class="nav-cta" id="nav-call-btn">
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+          +1 403-354-4033
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="reviews-page-header">
+    <div class="container">
+      <h1>What Our Customers Say</h1>
+      <p>Real reviews from real Calgary homeowners — every single one earned through honest, professional service.</p>
+      <div class="overall-rating" aria-label="5.0 out of 5 stars rating from 35 reviews">
+        <div class="overall-num">5.0</div>
+        <div class="overall-info">
+          <span class="overall-stars">★★★★★</span>
+          <span>35 Google Reviews</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ALL REVIEWS -->
+  <section class="reviews-section-full" aria-labelledby="all-reviews-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Google Reviews</span>
+        <h2 id="all-reviews-heading" class="section-title">Verified Customer Feedback</h2>
+      </div>
+
+      <div class="reviews-all-grid" role="list">
+
+        <!-- Review 1: Sheldon Simoes -->
+        <article class="review-card-full reveal" role="listitem" aria-label="Review by Sheldon Simoes">
+          <div class="review-header">
+            <div class="reviewer-avatar" aria-hidden="true" style="background:#7C3AED;">S</div>
+            <div class="reviewer-info">
+              <strong>Sheldon Simoes</strong>
+              <span>Local Guide &bull; 12 reviews &bull; 10 photos</span>
+            </div>
+            <div class="reviewer-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+          <p class="review-meta" style="font-size:.8rem;color:var(--color-text-muted);">2 months ago</p>
+          <p class="review-text">"Highly recommend Ranjodh! Great price, outstanding communication, and incredibly professional from start to finish. He went way out of his way to come out and quote me, was punctual, knowledgeable, and clearly takes pride in his work. The install was flawless and done efficiently, with everything explained clearly. Easily one of the best, smoothest, and most stress-free transactions I've ever had. Would not hesitate to use him again or recommend him to anyone."</p>
+          <div class="google-badge"><div class="google-g" aria-hidden="true"></div>Posted on Google</div>
+        </article>
+
+        <!-- Review 2: Stephen McDonald -->
+        <article class="review-card-full reveal" role="listitem" aria-label="Review by Stephen McDonald">
+          <div class="review-header">
+            <div class="reviewer-avatar" aria-hidden="true" style="background:#059669;">S</div>
+            <div class="reviewer-info">
+              <strong>Stephen McDonald</strong>
+              <span>Local Guide &bull; 21 reviews &bull; 4 photos</span>
+            </div>
+            <div class="reviewer-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+          <p class="review-meta" style="font-size:.8rem;color:var(--color-text-muted);">2 months ago</p>
+          <p class="review-text">"Sam is the best, always does a good job, he goes above and beyond."</p>
+          <div class="google-badge"><div class="google-g" aria-hidden="true"></div>Posted on Google</div>
+        </article>
+
+        <!-- Review 3: Inder Sapal -->
+        <article class="review-card-full reveal" role="listitem" aria-label="Review by Inder Sapal">
+          <div class="review-header">
+            <div class="reviewer-avatar" aria-hidden="true" style="background:#0369A1;">I</div>
+            <div class="reviewer-info">
+              <strong>Inder Sapal</strong>
+              <span>8 reviews</span>
+            </div>
+            <div class="reviewer-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+          <p class="review-meta" style="font-size:.8rem;color:var(--color-text-muted);">9 months ago</p>
+          <p class="review-text">"Great service. Spoke to many plumbers prior to him who huffed and puffed at the size of my tank, and the fact it was connected to my radiant heating. These guys, came in the next day and got er done in less than 3 hours. Give these guys a call. Thank you gents!"</p>
+          <div class="google-badge"><div class="google-g" aria-hidden="true"></div>Posted on Google</div>
+        </article>
+
+        <!-- Review 4: Rachid Tahir -->
+        <article class="review-card-full reveal" role="listitem" aria-label="Review by Rachid Tahir">
+          <div class="review-header">
+            <div class="reviewer-avatar" aria-hidden="true" style="background:#B45309;">R</div>
+            <div class="reviewer-info">
+              <strong>Rachid Tahir</strong>
+              <span>9 reviews</span>
+            </div>
+            <div class="reviewer-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+          <p class="review-meta" style="font-size:.8rem;color:var(--color-text-muted);">2 years ago</p>
+          <p class="review-text">"Argy Plumbing &amp; Heating Ltd provided exceptional service for both January and March 2024 needs. Their professionalism and expertise were evident throughout, ensuring the job was done right the first time and in a timely manner. Not only were they knowledgeable, but their pricing was also very reasonable. I highly recommend Argy Plumbing &amp; Heating for any plumbing or heating needs."</p>
+          <div class="google-badge"><div class="google-g" aria-hidden="true"></div>Posted on Google</div>
+        </article>
+
+        <!-- Review 5: K K -->
+        <article class="review-card-full reveal" role="listitem" aria-label="Review by K K">
+          <div class="review-header">
+            <div class="reviewer-avatar" aria-hidden="true" style="background:#6B7280;">K</div>
+            <div class="reviewer-info">
+              <strong>K K</strong>
+              <span>5 reviews</span>
+            </div>
+            <div class="reviewer-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+          <p class="review-meta" style="font-size:.8rem;color:var(--color-text-muted);">A year ago</p>
+          <p class="review-text">"Had a water tank issue and called Argy Plumbing. Sam was very accommodating and came by right away with a new water tank and got it installed without issue. They were very professional and did a great job."</p>
+          <div class="google-badge"><div class="google-g" aria-hidden="true"></div>Posted on Google</div>
+        </article>
+
+        <!-- Review 6: Rainie Chung -->
+        <article class="review-card-full reveal" role="listitem" aria-label="Review by Rainie Chung">
+          <div class="review-header">
+            <div class="reviewer-avatar" aria-hidden="true" style="background:#DB2777;">R</div>
+            <div class="reviewer-info">
+              <strong>Rainie Chung</strong>
+              <span>Local Guide &bull; 19 reviews &bull; 4 photos</span>
+            </div>
+            <div class="reviewer-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+          <p class="review-meta" style="font-size:.8rem;color:var(--color-text-muted);">A year ago</p>
+          <p class="review-text">"Sam did an outstanding job fixing my water leak today. He was very efficient and friendly, ensuring everything was taken care of quickly and professionally. I highly recommend his services!"</p>
+          <div class="google-badge"><div class="google-g" aria-hidden="true"></div>Posted on Google</div>
+        </article>
+
+        <!-- Review 7: Isaac Ma -->
+        <article class="review-card-full reveal" role="listitem" aria-label="Review by Isaac Ma">
+          <div class="review-header">
+            <div class="reviewer-avatar" aria-hidden="true" style="background:#0F172A;">I</div>
+            <div class="reviewer-info">
+              <strong>Isaac Ma</strong>
+              <span>Local Guide &bull; 69 reviews &bull; 17 photos</span>
+            </div>
+            <div class="reviewer-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+          <p class="review-meta" style="font-size:.8rem;color:var(--color-text-muted);">A year ago</p>
+          <p class="review-text">"Sam came by to fix a few things. He was prompt and was able to come soon after contacting him. His knowledge and expertise is excellent as he was able to identify the problems and fix them quickly. Thanks Sam!"</p>
+          <div class="google-badge"><div class="google-g" aria-hidden="true"></div>Posted on Google</div>
+        </article>
+
+        <!-- Review 8: Rina Khaniya -->
+        <article class="review-card-full reveal" role="listitem" aria-label="Review by Rina Khaniya">
+          <div class="review-header">
+            <div class="reviewer-avatar" aria-hidden="true" style="background:#0369A1;">R</div>
+            <div class="reviewer-info">
+              <strong>Rina Khaniya</strong>
+              <span>Local Guide &bull; 9 reviews &bull; 19 photos</span>
+            </div>
+            <div class="reviewer-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+          <p class="review-meta" style="font-size:.8rem;color:var(--color-text-muted);">A year ago</p>
+          <p class="review-text">"Good guy...very knowledgeable....gives you good and reasonable advice. We asked him to fix our furnace and we were delighted with his work. Easy to approach and reliable."</p>
+          <div class="google-badge"><div class="google-g" aria-hidden="true"></div>Posted on Google</div>
+        </article>
+
+        <!-- Review 9: Veronica Escobar -->
+        <article class="review-card-full reveal" role="listitem" aria-label="Review by Veronica Escobar">
+          <div class="review-header">
+            <div class="reviewer-avatar" aria-hidden="true" style="background:#D97706;">V</div>
+            <div class="reviewer-info">
+              <strong>Veronica Escobar</strong>
+              <span>15 reviews &bull; 2 photos</span>
+            </div>
+            <div class="reviewer-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+          <p class="review-meta" style="font-size:.8rem;color:var(--color-text-muted);">A year ago</p>
+          <p class="review-text">"So thankful I called Argy Plumbing. Got an appointment quick. Problem was fixed quickly. Very knowledgeable and experienced. Sam is very friendly and polite. Also very reasonable in pricing. Highly recommend!!"</p>
+          <div class="google-badge"><div class="google-g" aria-hidden="true"></div>Posted on Google</div>
+        </article>
+
+        <!-- Review 10: Daryl Reinke -->
+        <article class="review-card-full reveal" role="listitem" aria-label="Review by Daryl Reinke">
+          <div class="review-header">
+            <div class="reviewer-avatar" aria-hidden="true" style="background:#374151;">D</div>
+            <div class="reviewer-info">
+              <strong>Daryl Reinke</strong>
+              <span>2 reviews</span>
+            </div>
+            <div class="reviewer-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+          <p class="review-meta" style="font-size:.8rem;color:var(--color-text-muted);">A year ago</p>
+          <p class="review-text">"Today I had a plumbing issue in our travel trailer. I cold called Argy. He not only lent me the splicing tools I needed but also gave me a lesson on how to do the repairs and supplied all the fittings I didn't even know I needed! What a kind, trusting, helpful Citadel community member! Thank you so much!"</p>
+          <div class="google-badge"><div class="google-g" aria-hidden="true"></div>Posted on Google</div>
+        </article>
+
+        <!-- Review 11: M Smith -->
+        <article class="review-card-full reveal" role="listitem" aria-label="Review by M Smith">
+          <div class="review-header">
+            <div class="reviewer-avatar" aria-hidden="true" style="background:#0369A1;">M</div>
+            <div class="reviewer-info">
+              <strong>M Smith</strong>
+              <span>Local Guide &bull; 32 reviews</span>
+            </div>
+            <div class="reviewer-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+          <p class="review-meta" style="font-size:.8rem;color:var(--color-text-muted);">2 years ago &bull; Heating system repair</p>
+          <p class="review-text">"We had our furnace quit in the middle of a cold snap. Argy Plumbing &amp; Heating came out in a timely manner and fixed the problem same day, saving us from potential disaster. Professional and reasonably priced, we appreciated the help very much. Would recommend their services to anyone!"</p>
+          <div class="google-badge"><div class="google-g" aria-hidden="true"></div>Posted on Google</div>
+        </article>
+
+        <!-- Review 12: Dan Lenters -->
+        <article class="review-card-full reveal" role="listitem" aria-label="Review by Dan Lenters">
+          <div class="review-header">
+            <div class="reviewer-avatar" aria-hidden="true" style="background:#B45309;">D</div>
+            <div class="reviewer-info">
+              <strong>Dan Lenters</strong>
+              <span>Local Guide &bull; 27 reviews &bull; 15 photos</span>
+            </div>
+            <div class="reviewer-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+          <p class="review-meta" style="font-size:.8rem;color:var(--color-text-muted);">2 years ago</p>
+          <p class="review-text">"We are very pleased with the service by Argy Plumbing at our house. We had a plugged drain pipe in our kitchen, and needed help. Sam, the owner responded quickly, and came to our house prepared. He put us at ease that the problem would be fixed, and they did so with care for our floors and surrounding surfaces. It is refreshing to know a nearby plumber who is passionate and professional, and cares so much for the service he provides. Highly recommended!"</p>
+          <div class="google-badge"><div class="google-g" aria-hidden="true"></div>Posted on Google</div>
+        </article>
+
+        <!-- Review 13: Nancy Sun -->
+        <article class="review-card-full reveal" role="listitem" aria-label="Review by Nancy Sun">
+          <div class="review-header">
+            <div class="reviewer-avatar" aria-hidden="true" style="background:#059669;">N</div>
+            <div class="reviewer-info">
+              <strong>Nancy Sun</strong>
+              <span>6 reviews &bull; 4 photos</span>
+            </div>
+            <div class="reviewer-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          </div>
+          <p class="review-meta" style="font-size:.8rem;color:var(--color-text-muted);">A year ago</p>
+          <p class="review-text">"Excellent service with great patience and professionalism."</p>
+          <div class="google-badge"><div class="google-g" aria-hidden="true"></div>Posted on Google</div>
+        </article>
+
+      </div><!-- end reviews grid -->
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner" aria-labelledby="reviews-cta-heading">
+    <div class="container cta-inner">
+      <div class="cta-content">
+        <h2 id="reviews-cta-heading">Join Our Happy Customers</h2>
+        <p>Experience the 5-star service that Calgary homeowners rave about. Call today.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="tel:+14033544033" class="btn btn-white" id="reviews-cta-call">
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+          +1 403-354-4033
+        </a>
+        <a href="contact.html" class="btn btn-outline-white" id="reviews-cta-contact">Request a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo footer-logo">
+          <div class="logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M8 4C8 4 6 8 6 14C6 18 8 21 12 22L12 28H20V22C24 21 26 18 26 14C26 8 24 4 24 4" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 14H20M16 10V18" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="logo-text"><span class="logo-name">Argy Plumbing</span><span class="logo-sub">&amp; Heating Ltd.</span></div>
+        </div>
+        <p>Calgary's trusted plumbing, heating &amp; gas fitting company. 5-star rated.</p>
+        <div class="footer-rating"><span class="stars footer-stars">★★★★★</span><span>5.0 &bull; 35 Google Reviews</span></div>
+      </div>
+      <div class="footer-nav">
+        <h3>Quick Links</h3>
+        <ul role="list"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div class="footer-services">
+        <h3>Our Services</h3>
+        <ul role="list"><li><a href="services.html#plumbing">Plumbing</a></li><li><a href="services.html#water-heater">Water Heater &amp; Tank</a></li><li><a href="services.html#heating">Heating</a></li><li><a href="services.html#gas">Gas Fitting</a></li><li><a href="services.html#drains">Drain &amp; Pipe</a></li><li><a href="services.html#emergency">Emergency Service</a></li></ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <address>
+          <p><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>260 Citadel Hills Pl NW<br/>Calgary, AB T3G 3V6</p>
+          <p><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg><a href="tel:+14033544033">+1 403-354-4033</a></p>
+          <p><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>Mon–Fri: 7AM–7PM<br/>Sat–Sun: 8AM–6PM</p>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="container"><p>&copy; 2024 Argy Plumbing and Heating Ltd. All rights reserved.</p></div></div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

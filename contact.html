@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Argy Plumbing and Heating Ltd. Calgary</title>
+  <meta name="description" content="Contact Argy Plumbing and Heating Ltd. in Calgary. Call +1 403-354-4033 or send a message for plumbing, heating, and gas fitting services. Fast response guaranteed." />
+  <link rel="canonical" href="https://argyplumbing.com/contact.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 64px;
+      align-items: start;
+      padding: 80px 0 100px;
+    }
+    @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; gap: 48px; } }
+
+    /* Contact Info Cards */
+    .contact-info-stack { display: flex; flex-direction: column; gap: 20px; }
+    .contact-info-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .contact-info-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+    .contact-info-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-info-icon svg { width: 24px; height: 24px; color: var(--color-primary); }
+    .contact-info-body h3 { font-size: 1rem; font-weight: 700; color: var(--color-text); margin-bottom: 6px; }
+    .contact-info-body p, .contact-info-body a {
+      font-size: .95rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      line-height: 1.6;
+    }
+    .contact-info-body a:hover { color: var(--color-primary); }
+
+    /* Form */
+    .contact-form-wrap {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 48px 40px;
+      box-shadow: var(--shadow-md);
+    }
+    .contact-form-wrap h2 {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .contact-form-wrap p { color: var(--color-text-muted); margin-bottom: 32px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-size: .875rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 8px;
+      letter-spacing: .03em;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      background: var(--color-bg);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      font-family: var(--font-body);
+      font-size: .95rem;
+      color: var(--color-text);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(3,105,161,.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236B7280'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 20px;
+      padding-right: 40px;
+    }
+    .form-submit { width: 100%; justify-content: center; font-size: 1rem; padding: 16px 32px; margin-top: 8px; }
+    .form-note { font-size: .8rem; color: var(--color-text-muted); text-align: center; margin-top: 12px; }
+
+    /* Success */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .form-success .success-icon {
+      width: 64px; height: 64px;
+      background: #D1FAE5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 2rem;
+    }
+    .form-success h3 { font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-text); margin-bottom: 8px; }
+    .form-success p { color: var(--color-text-muted); }
+
+    /* Map embed placeholder */
+    .map-section { padding: 0 0 80px; }
+    .map-wrap {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--color-border);
+      height: 400px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Argy Plumbing and Heating Homepage">
+        <div class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M8 4C8 4 6 8 6 14C6 18 8 21 12 22L12 28H20V22C24 21 26 18 26 14C26 8 24 4 24 4" stroke="#0369A1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 14H20M16 10V18" stroke="#0369A1" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="logo-text"><span class="logo-name">Argy Plumbing</span><span class="logo-sub">&amp; Heating Ltd.</span></div>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        <li><a href="tel:+14033544033" class="nav-cta" id="nav-call-btn">
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+          +1 403-354-4033
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Need a plumber today? We respond fast — call us directly or fill in the form and we'll reach back promptly.</p>
+    </div>
+  </header>
+
+  <!-- CONTACT CONTENT -->
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- LEFT: Info -->
+      <div class="contact-info-stack reveal">
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+          </div>
+          <div class="contact-info-body">
+            <h3>Phone</h3>
+            <p><a href="tel:+14033544033" id="contact-phone-link">+1 403-354-4033</a></p>
+            <p style="font-size:.8rem;margin-top:4px;">Call or text — we respond fast</p>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 0115 0z"/></svg>
+          </div>
+          <div class="contact-info-body">
+            <h3>Address</h3>
+            <p>260 Citadel Hills Pl NW<br/>Calgary, AB T3G 3V6</p>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="contact-info-body">
+            <h3>Hours of Operation</h3>
+            <p>Monday – Friday: 7:00 AM – 7:00 PM</p>
+            <p>Saturday – Sunday: 8:00 AM – 6:00 PM</p>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5 3.75 2.25v1.5l2.086 2.086m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/></svg>
+          </div>
+          <div class="contact-info-body">
+            <h3>Services</h3>
+            <p>Plumbing • Heating • Gas Fitting<br/>Water Heaters • Drains • Emergency</p>
+          </div>
+        </div>
+
+        <div class="contact-info-card" style="background:var(--color-primary);border-color:var(--color-primary);">
+          <div class="contact-info-icon" style="background:rgba(255,255,255,.15);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+          </div>
+          <div class="contact-info-body">
+            <h3 style="color:#fff;">Same-Day Service</h3>
+            <p style="color:rgba(255,255,255,.85);">For urgent issues, call directly. We often respond within hours and aim to be there the same day.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="contact-form-wrap reveal">
+        <h2>Send Us a Message</h2>
+        <p>Describe your issue and we'll get back to you as soon as possible — usually within a few hours.</p>
+
+        <form id="contact-form" novalidate aria-label="Contact form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name *</label>
+              <input type="text" id="first-name" name="first_name" placeholder="Jane" required autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Smith" autocomplete="family-name" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 403-000-0000" required autocomplete="tel" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service">
+              <option value="">Select a service...</option>
+              <option value="plumbing">Plumbing Repair</option>
+              <option value="water-heater">Water Heater / Tank</option>
+              <option value="heating">Heating / Furnace</option>
+              <option value="gas">Gas Line / Gas Fitting</option>
+              <option value="drain">Drain / Clog</option>
+              <option value="emergency">Emergency Service</option>
+              <option value="renovation">Renovation Plumbing</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Describe Your Issue *</label>
+            <textarea id="message" name="message" rows="5" placeholder="Briefly describe what's happening — e.g. 'No hot water, water heater is 12 years old' or 'Kitchen drain is completely blocked'..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit" id="contact-submit-btn">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M3.105 2.289a.75.75 0 00-.826.95l1.414 4.925A1.5 1.5 0 005.135 9.25h6.115a.75.75 0 010 1.5H5.135a1.5 1.5 0 00-1.442 1.086l-1.414 4.926a.75.75 0 00.826.95 28.896 28.896 0 0015.293-7.154.75.75 0 000-1.115A28.897 28.897 0 003.105 2.289z"/></svg>
+            Send Message
+          </button>
+          <p class="form-note">We typically respond within 2–4 hours during business hours.</p>
+        </form>
+
+        <div class="form-success" id="form-success" aria-live="polite">
+          <div class="success-icon" aria-hidden="true">✓</div>
+          <h3>Message Sent!</h3>
+          <p>Thanks for reaching out. We'll be in touch shortly — usually within a few hours during business hours.</p>
+          <p style="margin-top:12px;">For urgent matters, call us directly at <a href="tel:+14033544033" style="color:var(--color-primary);font-weight:700;">+1 403-354-4033</a>.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MAP -->
+  <section class="map-section" aria-labelledby="map-heading">
+    <div class="container">
+      <h2 id="map-heading" style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--color-text);margin-bottom:24px;">Find Us in Citadel, NW Calgary</h2>
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2505.890!2d-114.1962!3d51.1285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53717175aaba7ba1%3A0x5539b7e7fc25d7cf!2s260+Citadel+Hills+Pl+NW%2C+Calgary%2C+AB+T3G+3V6!5e0!3m2!1sen!2sca!4v1713420000000"
+          title="Argy Plumbing and Heating Ltd. location at 260 Citadel Hills Pl NW, Calgary"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner" aria-labelledby="contact-cta-heading">
+    <div class="container cta-inner">
+      <div class="cta-content">
+        <h2 id="contact-cta-heading">Need Immediate Help?</h2>
+        <p>Don't wait — call us now and we'll get someone out fast.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="tel:+14033544033" class="btn btn-white" id="contact-cta-call">
+          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+          Call +1 403-354-4033
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo footer-logo">
+          <div class="logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M8 4C8 4 6 8 6 14C6 18 8 21 12 22L12 28H20V22C24 21 26 18 26 14C26 8 24 4 24 4" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 14H20M16 10V18" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="logo-text"><span class="logo-name">Argy Plumbing</span><span class="logo-sub">&amp; Heating Ltd.</span></div>
+        </div>
+        <p>Calgary's trusted plumbing, heating &amp; gas fitting company. 5-star rated.</p>
+        <div class="footer-rating"><span class="stars footer-stars">★★★★★</span><span>5.0 &bull; 35 Google Reviews</span></div>
+      </div>
+      <div class="footer-nav">
+        <h3>Quick Links</h3>
+        <ul role="list"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="reviews.html">Reviews</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div class="footer-services">
+        <h3>Our Services</h3>
+        <ul role="list"><li><a href="services.html#plumbing">Plumbing</a></li><li><a href="services.html#water-heater">Water Heater &amp; Tank</a></li><li><a href="services.html#heating">Heating</a></li><li><a href="services.html#gas">Gas Fitting</a></li><li><a href="services.html#drains">Drain &amp; Pipe</a></li><li><a href="services.html#emergency">Emergency Service</a></li></ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <address>
+          <p><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>260 Citadel Hills Pl NW<br/>Calgary, AB T3G 3V6</p>
+          <p><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg><a href="tel:+14033544033">+1 403-354-4033</a></p>
+          <p><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>Mon–Fri: 7AM–7PM<br/>Sat–Sun: 8AM–6PM</p>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="container"><p>&copy; 2024 Argy Plumbing and Heating Ltd. All rights reserved.</p></div></div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Contact form submission handler
+    const form = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const firstName = document.getElementById('first-name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const message = document.getElementById('message').value.trim();
+        if (!firstName || !phone || !message) {
+          alert('Please fill in all required fields (First Name, Phone, and Message).');
+          return;
+        }
+        // Simulate form submission
+        form.style.display = 'none';
+        formSuccess.style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>
